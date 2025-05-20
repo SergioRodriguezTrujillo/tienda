@@ -14,6 +14,8 @@
 
 .category-item:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background-color: #0e2a47; /* Dark blue background on hover */
+  color: white;
 }
 
 .category-icon {
@@ -25,4 +27,14 @@
   text-align: center;
   font-weight: 500;
   font-size: 0.9rem;
+}
+
+/* Make the icon white on hover */
+.category-item:hover .category-icon {
+  color: white;
+}
+
+/* Make the text white on hover */
+.category-item:hover .category-name {
+  color: white;
 }

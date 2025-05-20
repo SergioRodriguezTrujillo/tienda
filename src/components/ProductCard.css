@@ -5,6 +5,8 @@
   position: relative;
   transition: all 0.3s ease;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
 }
 
 .product-card:hover {
@@ -164,4 +166,32 @@
 
 .buy-now-btn:hover {
   opacity: 0.9;
+}
+
+/* Add the "Add to Cart" button that appears on hover */
+.add-to-cart-btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #000;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  font-weight: 600;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.product-card:hover .add-to-cart-btn {
+  transform: translateY(0);
+}
+
+/* Ensure the product info has proper z-index and position */
+.product-info {
+  position: relative;
+  z-index: 5;
+  background-color: white;
 }

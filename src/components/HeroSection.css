@@ -17,17 +17,31 @@
   margin-right: 40px;
 }
 
+/* Add vertical divider */
+.sidebar-menu::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1); /* Match the color of the horizontal divider */
+  z-index: 2;
+}
+
 .sidebar-menu ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
+/* Modify the sidebar menu padding and hover effect */
 .sidebar-menu a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
+  padding: 8px 10px; /* Reduced padding to half */
+  margin: 16px;
   color: #333;
   text-decoration: none;
   transition: background-color 0.3s;
@@ -35,8 +49,16 @@
   font-weight: 400;
 }
 
+/* Change hover background color to match category hover (dark blue) */
 .sidebar-menu a:hover {
-  background-color: #f9f9f9;
+  background-color: #0e2a47; /* Dark blue background on hover - same as categories */
+  color: white;
+  border-radius: 8px;
+}
+
+/* Make the arrow icon white on hover */
+.sidebar-menu a:hover .menu-arrow {
+  color: white;
 }
 
 .menu-arrow {
@@ -181,7 +203,8 @@
     width: 100%;
   }
 
-  .vertical-divider {
+  /* Hide vertical divider on mobile */
+  .sidebar-menu::after {
     display: none;
   }
 

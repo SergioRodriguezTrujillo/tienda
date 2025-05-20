@@ -127,7 +127,7 @@ const HomePage = () => {
       rating: 5,
       reviewCount: 99,
       colors: ["black", "blue"],
-      image: "/ram.jpg",
+      image: "/ram.png",
     },
   ]
 
@@ -196,7 +196,7 @@ const HomePage = () => {
                 {/* Rendimiento - Elemento inferior derecho */}
                 <div className="recently-arrived-item">
                   <div className="recently-arrived-content">
-                    <img src="/ram.jpg" alt="Rendimiento" className="recently-arrived-image" />
+                    <img src="/ram.png" alt="Rendimiento" className="recently-arrived-image" />
                     <div className="recently-arrived-info">
                       <h3>Rendimiento</h3>
                       <p>Todo en velocidad y rendimiento</p>
@@ -215,20 +215,22 @@ const HomePage = () => {
       {/* Categorías */}
       <section className="categories-section">
         <div className="container">
-          <div className="section-header">
-            <div>
+          <div className="categories-header">
+            <div className="categories-title-row">
               <h2 className="section-title">Categorías</h2>
             </div>
-            <div className="categories-navigation">
-              <button className="categories-nav-arrow">
-                <ArrowLeft size={16} strokeWidth={1.5} />
-              </button>
-              <button className="categories-nav-arrow">
-                <ArrowRight size={16} strokeWidth={1.5} />
-              </button>
+            <div className="categories-subtitle-row">
+              <h3 className="section-subtitle">Buscar por categoría</h3>
+              <div className="categories-navigation">
+                <button className="categories-nav-arrow">
+                  <ArrowLeft size={16} strokeWidth={1.5} />
+                </button>
+                <button className="categories-nav-arrow">
+                  <ArrowRight size={16} strokeWidth={1.5} />
+                </button>
+              </div>
             </div>
           </div>
-          <h3 className="section-subtitle">Buscar por categoría</h3>
 
           <div className="category-grid">
             {categories.map((category) => (

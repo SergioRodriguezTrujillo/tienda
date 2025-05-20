@@ -65,6 +65,27 @@
   background-color: #f5f5f5;
 }
 
+/* Categories header styling to match services header */
+.categories-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.categories-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.categories-subtitle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
 .categories-section,
 .products-section,
 .featured-section,
@@ -91,16 +112,42 @@
   height: 400px;
 }
 
+/* Modify the hover effect for the recently arrived items */
+/* Increase the glow effect and remove card border shadows */
+
+/* Remove box shadow from the card itself */
 .recently-arrived-item {
   position: relative;
   overflow: hidden;
   border-radius: 4px;
   background-color: #000;
   height: 100%;
+  box-shadow: none; /* Remove any default shadow */
 }
 
-.recently-arrived-item.large {
-  grid-row: span 1;
+/* Increase the glow effect on the image */
+.recently-arrived-item:hover .recently-arrived-image {
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.9));
+  transform: scale(1.05);
+}
+
+/* Remove the inner box shadow */
+.recently-arrived-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: none; /* Remove the inner shadow */
+  z-index: 3;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+/* Remove the inner glow on hover */
+.recently-arrived-item:hover::before {
+  box-shadow: none; /* Remove the inner shadow on hover */
 }
 
 .recently-arrived-content {
@@ -124,30 +171,17 @@
   transition: transform 0.5s ease; /* Añadir transición para el zoom */
 }
 
-/* Añadir efecto de zoom en hover */
-.recently-arrived-item:hover .recently-arrived-image {
-  transform: scale(1.1);
+/* Modify the hover effect for the recently arrived items */
+/* Remove the text shadow effect */
+.recently-arrived-item:hover .recently-arrived-info h3,
+.recently-arrived-item:hover .recently-arrived-info p {
+  text-shadow: none; /* Remove text shadow on hover */
 }
 
-/* Eliminar el sombreado interior y añadir el contorno luminoso */
-.recently-arrived-item::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  box-shadow: inset 0 0 0 0 rgba(255, 255, 255, 0);
-  z-index: 3;
-  transition: box-shadow 0.3s ease;
-  pointer-events: none;
+.recently-arrived-item.large {
+  grid-row: span 1;
 }
 
-.recently-arrived-item:hover::before {
-  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.7);
-}
-
-/* Añadir un resplandor sutil alrededor del contenido */
 .recently-arrived-info {
   position: absolute;
   bottom: 0;
@@ -157,11 +191,6 @@
   color: white;
   z-index: 4;
   transition: text-shadow 0.3s ease;
-}
-
-.recently-arrived-item:hover .recently-arrived-info h3,
-.recently-arrived-item:hover .recently-arrived-info p {
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .recently-arrived-info h3 {
@@ -213,13 +242,33 @@
   gap: 15px;
 }
 
+/* Center the category grid */
 .category-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 28px;
   margin-bottom: 2rem;
   width: 100%;
-  max-width: 100%;
+  max-width: 1000px; /* Set a specific max-width */
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+}
+
+/* Ensure each category item has equal width */
+.category-item {
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 15px;
+  transition: all 0.3s ease;
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  box-sizing: border-box; /* Ensure padding is included in width calculation */
 }
 
 .products-grid {
@@ -614,5 +663,10 @@
 
   .service-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Adjust category grid for mobile */
+  .category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

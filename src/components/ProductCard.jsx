@@ -20,6 +20,14 @@ const ProductCard = ({ product }) => {
     }
   }
 
+  const handleAddToCart = () => {
+    addToCart({
+      ...product,
+      selectedColor,
+      quantity: 1,
+    })
+  }
+
   return (
     <div className="product-card">
       {product.discount > 0 && <span className="discount-badge">-{product.discount}%</span>}
@@ -71,6 +79,11 @@ const ProductCard = ({ product }) => {
           ))}
         </div>
       </div>
+
+      {/* Add to Cart button that appears on hover */}
+      <button className="add-to-cart-btn" onClick={handleAddToCart}>
+        Add To Cart
+      </button>
     </div>
   )
 }

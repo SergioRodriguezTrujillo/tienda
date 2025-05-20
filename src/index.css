@@ -204,6 +204,11 @@ ul {
   font-size: 0.9rem;
 }
 
+/* Modify the "Ver todos" button hover effect */
+.view-all:hover {
+  background-color: #f05c6c; /* Lighter red on hover */
+}
+
 .navigation-arrows {
   display: flex;
   gap: 10px;
@@ -383,4 +388,15 @@ ul {
   .hero-image {
     width: 100%;
   }
+}
+
+/* Modify the service button hover effect */
+.service-button:hover {
+  background-color: #f05c6c; /* Lighter red on hover */
+}
+
+/* Modify the promo button hover effect */
+.promo-button:hover {
+  background-color: #5dbb63; /* Lighter green on hover */
+  opacity: 1; /* Override the opacity */
 }
